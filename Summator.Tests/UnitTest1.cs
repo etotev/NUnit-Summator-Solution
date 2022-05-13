@@ -47,6 +47,7 @@
         }
 
         [Test]
+        [Category("Pisha kakvoto si iskam")]
 
         public void Test_Sum_BigValues()
         {
@@ -56,17 +57,6 @@
 
             Assert.That(result == expected);
 
-        }
-
-        [Test]
-
-        public void Test_Sum_OneZero_and_Number()
-        {
-            long result = Summator.Sum(new int[] { 0, 5 });
-
-            int expected = 5;
-
-            Assert.That(result == expected);
         }
     }
 }
