@@ -1,62 +1,59 @@
-﻿namespace Summator.Tests
+﻿using NUnit.Framework;
+
+namespace Summator.Tests
 {
-    public class Tests
+    public class SummatorTests
     {
-        [Test]        // Задължително се пише, иначе не излиза в Test Explorer
-        
+        [Test]
         public void Test_Sum_TwoPossitiveNumbers()
         {
-            long result = Summator.Sum(new int[] { 5, 7 }); // Задължително се прави референция към Summator Project
+            long actual = Summator.Sum(new int[] { 5, 7 });
 
             int expected = 12;
 
-            Assert.That(result == expected);
+            Assert.That(expected == actual);
         }
 
         [Test]
-
-        public void Test_Sum_ThreePossitiveNumbers()
+        public void Test_Sum_OnePositiveNumber()
         {
-            long result = Summator.Sum(new int[] { 5, 7 , 5 });
+            long actual = Summator.Sum(new int[] { 5 });
 
-            int expected = 17;
-
-            Assert.That(result == expected);
+            Assert.That(actual == 5);
         }
 
         [Test]
-
         public void Test_Sum_TwoNegativeNumbers()
         {
-            long result = Summator.Sum(new int[] { -7,-9 });
+            long actual = Summator.Sum(new int[] { -7, -9 });
 
-            int expected = -16;
-
-            Assert.That(result == expected);
+            Assert.That(actual == -16);
         }
 
         [Test]
-
-        public void Test_Sum_TwoZeroes()
+        public void Test_Sum_EmptyArray()
         {
-            long result = Summator.Sum(new int[] { 0,0 });
+            long actual = Summator.Sum(new int[] { });
 
-            int expected = 0;
-
-            Assert.That(result == expected);
+            Assert.That(actual == 0);
         }
 
         [Test]
-        [Category("Pisha kakvoto si iskam")]
-
         public void Test_Sum_BigValues()
         {
-            long result = Summator.Sum(new int[] { 3000000000, 5000000000 });
+            long actual = Summator.Sum(new int[] { 2000000000, 2000000000, 2000000000, 2000000000 });
 
-            long expected = 8000000000;
+            Assert.AreEqual(8000000000, actual);
+        }
 
-            Assert.That(result == expected);
+        [Test]
+        public void Test_Average_TwoPossitiveNumbers()
+        {
+            int actual = Summator.Average(new int[] { 5, 7 });
 
+            int expected = 6;
+
+            Assert.That(expected == actual);
         }
     }
 }
